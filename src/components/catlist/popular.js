@@ -13,15 +13,20 @@ const Popular = () => {
   },[])
 
   return <>
-    {movieDb !== undefined ?
-      <Swiper spaceBetween={20} slidesPerView={5}>
-        {movieDb.slice(6,20).map((slideContent, index) => {
-          return <SwiperSlide className="movie-item" key={slideContent.id}>
-            <Movie slideContent={slideContent} />
-          </SwiperSlide>
-        })}
-      </Swiper> : ''
-    }
+    <section className="popular_section">
+      <div className="popular_sec_heading">
+        <h2>Popular Movies <span>Show More</span></h2>
+      </div>
+      {movieDb !== undefined ?
+        <Swiper spaceBetween={30} slidesPerView={5} slidesPerGroup={5}>
+          {movieDb.slice(5,20).map((slideContent, index) => {
+            return <SwiperSlide className="movie-item" key={slideContent.id}>
+              <Movie slideContent={slideContent} />
+            </SwiperSlide>
+          })}
+        </Swiper> : ''
+      }
+    </section>
   </>;
 }
 

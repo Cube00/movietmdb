@@ -5,6 +5,7 @@ const Home = () => {
   return <>
     <div className="content_pops">
       <Mostpopular/>
+      <Popular />
     </div>
   </>
 }
