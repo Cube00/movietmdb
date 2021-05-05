@@ -268,7 +268,7 @@ header {
   bottom: 170px;
   padding: 13px 45px;
   margin-right: 59px;
-  background-color: #e7b21d;
+  background-color: #e6b31e;
   font-family: 'Poppins', sans-serif;
   color: #fff;
   border: none;
@@ -300,6 +300,11 @@ header {
   padding-right: 20px;
 }
 
+.popular_sec_heading {
+  display: flex;
+  justify-content: space-between;
+}
+
 .popular_sec_heading h2 {
   margin-bottom: 30px;
   font-size: 18px;
@@ -314,6 +319,55 @@ header {
   font-family: 'Poppins', sans-serif;
   font-weight: normal;
   color: #989898;
+}
+
+.inv {
+  display: none;
+}
+
+.vis {
+  display: block;
+}
+
+.choose_cat{
+  display: flex;
+  justify-content: flex-start;
+  margin-right:20px;
+  font-family: 'Poppins', sans-serif;
+  font-size:14px;
+  color:#fff;
+  cursor: pointer;
+}
+
+.choose_cat span::first-letter{
+  text-transform: uppercase;
+}
+
+.arrow_drop {
+  margin-top:4px;
+  margin-left:5px;
+  color:#e6b31e;
+}
+
+.categories_block{
+  position: absolute;
+  right:20px;
+  margin-top:40px;
+  background-color:#2e2e2e;
+  z-index: 5;
+}
+
+.categories_block li{
+  padding:10px 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size:13px;
+  color:#5a5a5a;
+  border-bottom:1px solid#494949;
+  cursor: pointer;
+}
+
+.categories_block li:hover{
+  color:#fff;
 }
 
 .movie-item {

@@ -1,11 +1,13 @@
-import Popular from '../components/catlist/popular';
+import RecentlyMovies from '../components/catlist/recentlymovies';
 import Mostpopular from '../components/catlist/mostpopular';
+import Tvshows from '../components/catlist/tvshows';
 
 const Home = () => {
   return <>
     <div className="content_pops">
       <Mostpopular/>
-      <Popular />
+      <RecentlyMovies />
+      <Tvshows />
     </div>
   </>
 }

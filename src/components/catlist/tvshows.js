@@ -1,9 +1,8 @@
 import {useState, useEffect} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
-import Movie from './movie';
 
-const Popular = () => {
+const Tvshows = () => {
   const [movieDb,setMovieDb] = useState([]);
 
   useEffect(()=>{
@@ -15,19 +14,19 @@ const Popular = () => {
   return <>
     <section className="popular_section">
       <div className="popular_sec_heading">
-        <h2>Popular Movies <span>Show More</span></h2>
+        <h2>Recently tv shows <span>Show More</span></h2>
       </div>
       {movieDb !== undefined ?
-        <Swiper spaceBetween={30} slidesPerView={5} slidesPerGroup={5}>
+        <Swiper spaceBetween={30} slidesPerView={3}>
           {movieDb.slice(5,20).map((slideContent, index) => {
             return <SwiperSlide className="movie-item" key={slideContent.id}>
-              <Movie slideContent={slideContent} />
+              slide
             </SwiperSlide>
           })}
         </Swiper> : ''
       }
     </section>
-  </>;
+  </>
 }
 
-export default Popular;
+export default Tvshows;
