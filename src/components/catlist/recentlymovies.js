@@ -25,12 +25,6 @@ const RecentlyMovies = () => {
   const [classes, setClasses] = useState(false);
   const [favourites, setFavourites] = useState([]);
 
-  useEffect(()=>{
-    fetch(`https://api.themoviedb.org/3/movie/${state}?api_key=0c8eba5d41d59379c0d9a98afd4738fe&language=en-US&page=1`)
-    .then((response)=> response.json())
-    .then((data)=>{setMovieDb(data.results)})
-  },[state])
-
   const setDispatch = (e) => {
     dispatch({type: e.target.textContent});
     setClasses(false);
@@ -67,11 +61,18 @@ const RecentlyMovies = () => {
   }
 
   const getArray = JSON.parse(localStorage.getItem('favourites') || 0);
+
   useEffect(()=>{
     if(getArray !==0){
       setFavourites([...getArray])
     }
   },[])
+
+  useEffect(()=>{
+    fetch(`https://api.themoviedb.org/3/movie/${state}?api_key=0c8eba5d41d59379c0d9a98afd4738fe&language=en-US&page=1`)
+    .then((response)=> response.json())
+    .then((data)=>{setMovieDb(data.results)})
+  },[state])
 
   return <>
     <section className="popular_section">
