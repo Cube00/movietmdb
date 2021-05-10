@@ -10,12 +10,14 @@ const Movie = ({slideContent,addFav,favourites})=>{
   const poster = post_path + poster_path;
   const year = release_date.substring(0, 4);
 
-  const getItem = JSON.parse(localStorage.getItem('favourites'))
+  const getItem = JSON.parse(localStorage.getItem('favourites') || 0);
 
   useEffect(()=>{
-    const filt = getItem.map((item)=> {return item.title === title});
-    if(filt.includes(true)){
-      setState(true);
+    if(getItem !== 0){
+      var filt = getItem.map((item)=> {return item.title === title});
+      if(filt.includes(true)){
+        setState(true);
+      }
     }
   },[state])
 
