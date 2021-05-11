@@ -11,7 +11,6 @@ const Movie = ({slideContent,addFav,favourites})=>{
   const year = release_date.substring(0, 4);
 
   const getItem = JSON.parse(localStorage.getItem('favourites') || 0);
-
   useEffect(()=>{
     if(getItem !== 0){
       var filt = getItem.map((item)=> {return item.title === title});

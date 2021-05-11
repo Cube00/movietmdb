@@ -1,8 +1,9 @@
-import {useState, useReducer, useEffect} from 'react';
+import {useState, useContext, useReducer, useEffect} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 import Movie from './movie';
 import {MdKeyboardArrowDown} from 'react-icons/md';
+import { useFav } from "../useFav";
 
 const setCat = (state,action) => {
   switch (action.type) {
@@ -23,7 +24,7 @@ const RecentlyMovies = () => {
   const [movieDb,setMovieDb] = useState([]);
   const [state, dispatch] = useReducer(setCat, value);
   const [classes, setClasses] = useState(false);
-  const [favourites, setFavourites] = useState([]);
+  const { favourites, addFav } = useFav();
 
   const setDispatch = (e) => {
     dispatch({type: e.target.textContent});
@@ -36,37 +37,6 @@ const RecentlyMovies = () => {
       setClasses(false);
     }
   }
-
-  const addFav = (item) => {
-    const array = favourites;
-    let addAprove = true;
-    array.map((e, key)=>{
-      if(e.id === item.id){
-        array.splice(key, 1);
-        addAprove = false;
-      }
-    })
-    if(addAprove){
-      array.push(item);
-    }
-    setFavourites([...array]);
-    localStorage.setItem('favourites', JSON.stringify(favourites));
-
-    var storage = localStorage.getItem('favItem' + (item.id) || 0);
-    if(storage==null){
-      localStorage.setItem(('favItem' + (item.id)), JSON.stringify(item));
-    }else{
-      localStorage.removeItem('favItem' + (item.id))
-    }
-  }
-
-  const getArray = JSON.parse(localStorage.getItem('favourites') || 0);
-
-  useEffect(()=>{
-    if(getArray !==0){
-      setFavourites([...getArray])
-    }
-  },[])
 
   useEffect(()=>{
     fetch(`https://api.themoviedb.org/3/movie/${state}?api_key=0c8eba5d41d59379c0d9a98afd4738fe&language=en-US&page=1`)
@@ -92,11 +62,11 @@ const RecentlyMovies = () => {
         <Swiper spaceBetween={30} slidesPerView={5} slidesPerGroup={5}>
           {movieDb.slice(5,20).map((slideContent, index) => {
             return <SwiperSlide className="movie-item" key={slideContent.id}>
-              <Movie
-                slideContent={slideContent}
-                addFav={()=>addFav(slideContent)}
-                favourites={favourites}
-              />
+                <Movie
+                  slideContent={slideContent}
+                  addFav={()=>addFav(slideContent)}
+                  favourites={favourites}
+                  />
             </SwiperSlide>
           })}
         </Swiper> : ''
