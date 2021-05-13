@@ -1,12 +1,13 @@
 import {useState, useEffect} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
+import Tvmovie from './tvmovie';
 
 const Tvshows = () => {
   const [movieDb,setMovieDb] = useState([]);
 
   useEffect(()=>{
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=0c8eba5d41d59379c0d9a98afd4738fe&language=en-US&page=1')
+    fetch('https://api.themoviedb.org/3/tv/popular?api_key=0c8eba5d41d59379c0d9a98afd4738fe&language=en-US&page=1')
     .then((response)=> response.json())
     .then((data)=>{setMovieDb(data.results)})
   },[])
@@ -20,7 +21,7 @@ const Tvshows = () => {
         <Swiper spaceBetween={30} slidesPerView={3}>
           {movieDb.slice(5,20).map((slideContent, index) => {
             return <SwiperSlide className="movie-item" key={slideContent.id}>
-              slide
+              <Tvmovie slideContent={slideContent} />
             </SwiperSlide>
           })}
         </Swiper> : ''

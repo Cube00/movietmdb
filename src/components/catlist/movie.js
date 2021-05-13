@@ -10,8 +10,8 @@ const Movie = ({slideContent,addFav,favourites})=>{
   const poster = post_path + poster_path;
   const year = release_date.substring(0, 4);
 
-  const getItem = JSON.parse(localStorage.getItem('favourites') || 0);
   useEffect(()=>{
+    const getItem = JSON.parse(localStorage.getItem('favourites') || 0);
     if(getItem !== 0){
       var filt = getItem.map((item)=> {return item.title === title});
       if(filt.includes(true)){
@@ -39,7 +39,7 @@ const Movie = ({slideContent,addFav,favourites})=>{
           <p>{overview}</p>
         </div>
         <div className="movie_details">
-          {state == true ? (
+          {state === true ? (
             <button onClick={()=>{addFav(slideContent); setState(false)}} className="add_fav">
               <AiFillHeart/>
             </button>) : (

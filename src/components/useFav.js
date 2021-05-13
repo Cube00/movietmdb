@@ -6,7 +6,7 @@ export const useFav = (item) => {
     const addFav = (item) => {
       const array = favourites;
       let addAprove = true;
-      array.map((e, key)=>{
+      array.forEach((e, key)=>{
         if(e.id === item.id){
           array.splice(key, 1);
           addAprove = false;
@@ -26,9 +26,8 @@ export const useFav = (item) => {
       }
     }
 
-    const getArray = JSON.parse(localStorage.getItem('favourites') || 0);
-
     useEffect(()=>{
+      const getArray = JSON.parse(localStorage.getItem('favourites') || 0);
       if(getArray !==0){
         setFavourites([...getArray])
       }

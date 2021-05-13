@@ -1,4 +1,4 @@
-import {useState, useContext, useReducer, useEffect} from 'react';
+import {useState, useReducer, useEffect} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 import Movie from './movie';
@@ -16,6 +16,8 @@ const setCat = (state,action) => {
     case 'Upcoming':
       value = 'Upcoming';
       return action.payload = 'upcoming';
+    default:
+      return '';
   }
 }
 

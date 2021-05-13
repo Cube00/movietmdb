@@ -498,3 +498,36 @@ header {
   outline: none;
   cursor: pointer;
 }
+
+.cover-backdrop img{
+  width:100%;
+}
+
+.tvMovie h2 {
+  font-size:16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight:normal;
+  color:#f1f1f1;
+}
+
+.tvMovie h3 {
+  margin:5px 0 0;
+  font-size:12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight:normal;
+  color:#A7A7A7;
+}
+
+.tvMovie h5 {
+  margin:5px 0 0;
+  font-size:14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight:normal;
+  color:#FCBD28;
+}
+
+.star-tv{
+  float:left;
+  margin-top:2.38px;
+  margin-right:5px;
+}
