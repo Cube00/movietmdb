@@ -531,3 +531,45 @@ header {
   margin-top:2.38px;
   margin-right:5px;
 }
+
+.add_fav_tv{
+  background-color:transparent;
+  font-size:17px;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
+
+.m_ic_sets {
+  position: absolute;
+  top:0;
+  right:0;
+  margin:15px 10px;
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.more_setts{
+  display: none;
+}
+
+.movie-item:hover .more_setts {
+  display: block;
+}
+
+.addit_blf{
+  display: none;
+  position: absolute;
+  top:0;
+  right:0;
+  margin:45px 15px;
+}
+
+.active{
+  display: block;
+}
+
+.tvMovie{
+  overflow: hidden;
+}
